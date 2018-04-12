@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Menu, Icon } from 'antd';
 
 const MenuItemGroup = Menu.ItemGroup;

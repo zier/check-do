@@ -16,6 +16,7 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "localhost:3000"
   },
   "exclude": [
