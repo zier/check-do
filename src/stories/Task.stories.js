@@ -1,5 +1,5 @@
 import React from 'react';
-import Task from '../Task';
+import Task from '../Components/Task';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -12,7 +12,6 @@ export const task = {
 export const actions = {
   onClick: action('onClickTask'),
 };
-
 
 storiesOf('Task', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
