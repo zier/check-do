@@ -15,6 +15,11 @@ export const tasks = [
     title: 'Buy Eggs',
     description: 'go to supermarket',
   },
+  {
+    title: 'Playing Games',
+    description: 'when come back home playing games',
+    isDone: true,
+  },
 ];
 
 export const actions = {

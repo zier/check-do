@@ -8,7 +8,7 @@ const TaskList = ({ tasks, state, onSelectTask }) => {
   if (state === 'LOADING_TASKLIST') {
     return (
       <Row gutter={16}>
-        <Col span={8}><Card loading title="Loading" /></Col>
+        <Col span={8}><Card loading /></Col>
       </Row>
     )
   }

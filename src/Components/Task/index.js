@@ -4,15 +4,23 @@ import gl from 'glamorous';
 
 import { Card, Icon } from 'antd';
 
-const Task = ({ title, description, onClick }) => {
+const Task = ({ title, description, onClickToggleDone, onClickDelete, isDone }) => {
+  let textLineThrough = {
+    textDecoration: 'none',
+  }
+
+  if (isDone) {
+    textLineThrough.textDecoration = 'line-through';
+  }
+
   return (
-    <Card style={{ padding: '0px' }} onClick={onClick} bordered={true}>
+    <Card style={{ padding: '0px' }} bordered={true}>
       <div className="control-buttons">
-        <Icon className="checkButton" type="check-circle-o" />
-        <Icon className="closeButton" type="close" />
+        <Icon onClick={onClickToggleDone} className="checkButton" type={isDone ? 'check-circle' : 'check-circle-o'} />
+        <Icon onClick={onClickDelete} className="closeButton" type="close" />
       </div>
-      <h4>{title}</h4>
-      <p>{description}</p>
+      <h4 style={textLineThrough}>{title}</h4>
+      <p style={textLineThrough}>{description}</p>
     </Card>
   )
 }
@@ -20,8 +28,8 @@ const Task = ({ title, description, onClick }) => {
 Task.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  onClick: PropTypes.func,
-  onClickComplete: PropTypes.func,
+  isDone: PropTypes.bool,
+  onClickToggleDone: PropTypes.func,
   onClickDelete: PropTypes.func
 };
 
