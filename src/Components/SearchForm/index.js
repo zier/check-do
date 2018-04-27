@@ -16,6 +16,7 @@ const SearchForm = ({ onChange, tagNames }) => {
       style={{ width: '100%' }}
       placeholder="input # to mention tag, eg. #work"
       onChange={onChange}
+      notFoundContent="not found #"
     >
       {children}
     </Select>

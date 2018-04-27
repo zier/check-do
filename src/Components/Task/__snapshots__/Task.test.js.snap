@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task work correctly renders correctly 1`] = `
+<Card
+  bordered={true}
+  style={
+    Object {
+      "padding": "0px",
+    }
+  }
+>
+  <div
+    className="control-buttons"
+  >
+    <Icon
+      className="checkButton"
+      onClick={[Function]}
+      type="check-circle-o"
+    />
+    <Icon
+      className="closeButton"
+      onClick={[Function]}
+      type="close"
+    />
+  </div>
+  <h4
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    title-test
+  </h4>
+  <p
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    description-test
+  </p>
+</Card>
+`;

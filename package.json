@@ -2,8 +2,12 @@
   "name": "check-do",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "setupTestFrameworkScriptFile": "./setupTest.js"
+  },
   "dependencies": {
     "antd": "^3.4.1",
+    "enzyme-to-json": "^3.3.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
@@ -14,7 +18,8 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "snap": "react-app-rewired test --updateSnapshot --env=jsdom"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^4.0.0-alpha.3",
@@ -24,6 +29,10 @@
     "babel-core": "^6.26.0",
     "babel-plugin-import": "^1.7.0",
     "babel-runtime": "^7.0.0-beta.3",
-    "react-app-rewired": "^1.5.0"
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest-environment-node": "^22.4.3",
+    "react-app-rewired": "^1.5.0",
+    "react-test-renderer": "^16.3.2"
   }
 }
