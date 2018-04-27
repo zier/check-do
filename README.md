@@ -1,4 +1,4 @@
 #### Check-do
-simple task management application
+simple checklist application
 
 ### :construction: working ....
