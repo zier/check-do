@@ -34,5 +34,15 @@ describe('Task work correctly', () => {
     expect(actions.onClickToggleDone.mock.calls.length).toBe(1)
     expect(actions.onClickDelete.mock.calls.length).toBe(1)
   })
+
+  it('task is Done', () => {
+    wrapper.setProps({ isDone: false })
+    expect(wrapper.find('h4')).toHaveStyle({ textDecoration: 'none' })
+    expect(wrapper.find('p')).toHaveStyle({ textDecoration: 'none' })
+
+    wrapper.setProps({ isDone: true })
+    expect(wrapper.find('h4')).toHaveStyle({ textDecoration: 'line-through' })
+    expect(wrapper.find('p')).toHaveStyle({ textDecoration: 'line-through' })
+  })
 })
 
