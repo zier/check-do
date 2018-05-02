@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import gl from 'glamorous';
 
 import { Card, Icon } from 'antd';
+
+import './Task.css'
 
 const Task = ({ title, description, onClickToggleDone, onClickDelete, isDone }) => {
   let textLineThrough = {

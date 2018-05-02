@@ -1,23 +1,47 @@
-import React, { Component } from 'react';
-import { Button } from 'antd';
+import React, { Component } from 'react'
+import { Layout } from 'antd'
 
-import logo from './logo.svg';
-import './App.css';
+import SearchForm from './Components/SearchForm'
+import TaskList from './Components/TaskList'
+import TaskForm from './Components/TaskForm'
+
+const { Header, Sider, Content } = Layout
+
+const testDataTagNames = ['test']
+const testDataTasks = [
+  {
+    title: 'Go home',
+    description: 'go to home after meeting',
+  },
+  {
+    title: 'Buy Eggs',
+    description: 'go to supermarket',
+  },
+  {
+    title: 'Playing Games',
+    description: 'when come back home playing games',
+    isDone: true,
+  },
+]
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload. <Button type="primary">Button</Button>
-        </p>
-      </div>
-    );
+      <Layout style={{ minHeight: '100vh' }}>
+        <Header>
+          <SearchForm tagNames={testDataTagNames}/>
+        </Header>
+        <Layout hasSider={true}>
+          <Content>
+            <TaskList tasks={testDataTasks} />
+          </Content>
+          <Sider>
+            <TaskForm tagNames={testDataTagNames} />
+          </Sider>
+        </Layout>
+      </Layout>
+    )
   }
 }
 
-export default App;
+export default App

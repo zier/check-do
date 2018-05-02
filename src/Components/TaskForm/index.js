@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Form, Select, Button, Icon, Input } from 'antd';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Form, Select, Button, Input } from 'antd'
 
-const FormItem = Form.Item;
+const FormItem = Form.Item
+const Option = Select.Option
 
 const TaskForm = ({ onSubmit, tagNames, form }) => {
-  const optionTags = [];
-  tagNames.map(tag => {
-    optionTags.push(<Option key={'#' + tag}>#{tag}</Option>);
+  const optionTags = []
+  tagNames.forEach(tag => {
+    optionTags.push(<Option key={'#' + tag}>#{tag}</Option>)
   })
 
-  const { getFieldDecorator } = form;
+  const { getFieldDecorator } = form
   const formItemLayout = {
     labelCol: { span: 6 },
     wrapperCol: { span: 14 },
-  };
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        onSubmit(values);
+        onSubmit(values)
       } else {
         // TODO: implement error validation
       }
@@ -69,6 +70,6 @@ const TaskForm = ({ onSubmit, tagNames, form }) => {
 TaskForm.propTypes = {
   onSubmit: PropTypes.func,
   tagNames: PropTypes.array
-};
+}
 
-export default Form.create()(TaskForm);
+export default Form.create()(TaskForm)

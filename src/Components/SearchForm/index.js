@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Select } from 'antd';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Select } from 'antd'
 
-const Option = Select.Option;
+const Option = Select.Option
 
 const SearchForm = ({ onChange, tagNames }) => {
-  const children = [];
-  tagNames.map(tag => {
-    children.push(<Option key={'#' + tag}>#{tag}</Option>);
+  const children = []
+  tagNames.forEach(tag => {
+    children.push(<Option key={'#' + tag}>#{tag}</Option>)
   })
 
   return (
@@ -26,6 +26,6 @@ const SearchForm = ({ onChange, tagNames }) => {
 SearchForm.propTypes = {
   onChange: PropTypes.func,
   tagNames: PropTypes.array
-};
+}
 
-export default SearchForm;
+export default SearchForm

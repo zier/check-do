@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Card, Col, Row } from 'antd';
-import Task from '../Task';
+import { Card, Col, Row } from 'antd'
+import Task from '../Task'
 
 const TaskList = ({ tasks, state, onSelectTask }) => {
   if (state === 'LOADING_TASKLIST') {
@@ -16,7 +16,7 @@ const TaskList = ({ tasks, state, onSelectTask }) => {
   return (
     <Row gutter={16}>
       {
-        tasks.map((task, index) => {
+        tasks.forEach((task, index) => {
           return <Col span={8}><Task onClick={onSelectTask} {...task}  key={index}/></Col>
         })
       }
@@ -28,6 +28,6 @@ TaskList.propTypes = {
   tasks: PropTypes.array,
   state: PropTypes.string,
   onSelectTask: PropTypes.func
-};
+}
 
-export default TaskList;
+export default TaskList
