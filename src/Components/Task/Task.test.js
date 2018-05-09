@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
-import Task from './index.js'
+import Task from './Task.js'
 
 describe('Task work correctly', () => {
   const props = {

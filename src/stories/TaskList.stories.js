@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskList from '../Components/TaskList';
+import TaskList from '../Components/TaskList/TaskList.js';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';

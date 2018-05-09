@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskForm from '../Components/TaskForm';
+import TaskForm from '../Components/TaskForm/TaskForm.js';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';

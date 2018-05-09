@@ -5,9 +5,10 @@ import { Select } from 'antd'
 const Option = Select.Option
 
 const SearchForm = ({ onChange, tagNames }) => {
-  const children = []
+  const optionSelect = []
+
   tagNames.forEach(tag => {
-    children.push(<Option key={'#' + tag}>#{tag}</Option>)
+    optionSelect.push(<Option key={'#' + tag}>#{tag}</Option>)
   })
 
   return (
@@ -18,7 +19,7 @@ const SearchForm = ({ onChange, tagNames }) => {
       onChange={onChange}
       notFoundContent="not found #"
     >
-      {children}
+      {optionSelect}
     </Select>
   )
 }

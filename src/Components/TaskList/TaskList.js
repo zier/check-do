@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Card, Col, Row } from 'antd'
-import Task from '../Task'
+import Task from '../Task/Task.js'
 
 const TaskList = ({ tasks, state, onSelectTask }) => {
   if (state === 'LOADING_TASKLIST') {
@@ -16,7 +16,7 @@ const TaskList = ({ tasks, state, onSelectTask }) => {
   return (
     <Row gutter={16}>
       {
-        tasks.forEach((task, index) => {
+        tasks.map((task, index) => {
           return <Col span={8}><Task onClick={onSelectTask} {...task}  key={index}/></Col>
         })
       }

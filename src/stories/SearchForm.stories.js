@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchForm from '../Components/SearchForm';
+import SearchForm from '../Components/SearchForm/SearchForm.js';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
