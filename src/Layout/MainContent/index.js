@@ -9,7 +9,7 @@ const { Content } = Layout
 const MainContent = () => {
   return (
     <Content className="mainContent">
-      <TaskList tasks={[]} />
+      <TaskList />
     </Content>
   )
 }

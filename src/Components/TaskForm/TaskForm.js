@@ -72,4 +72,5 @@ TaskForm.propTypes = {
   tagNames: PropTypes.array
 }
 
-export default Form.create()(TaskForm)
+const TaskFormD = Form.create()(TaskForm)
+export default TaskFormD

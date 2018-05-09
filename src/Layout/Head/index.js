@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Layout } from 'antd'
-import SearchForm from '../../Components/SearchForm'
+import SearchForm from '../../Components/SearchForm/SearchForm.js'
 
 import './index.css'
 
