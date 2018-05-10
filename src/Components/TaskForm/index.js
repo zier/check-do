@@ -1,16 +1,17 @@
 import { connect } from 'react-redux'
 import TaskForm from './TaskForm'
+import { addTask } from '../../actions/task'
 
 const mapStateToProps = (state) => {
   return {
-    tagNames: state.TaskForm.tagNames,
+    tagNames: state.Tag.items,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (formData) => {
-      dispatch({ type: 'ADD_TASK', task: { title: formData.title, description: formData.description } })
+      dispatch(addTask({ title: formData.title, description: formData.description, tags: formData.tags, isDone: false }))
     }
   }
 }

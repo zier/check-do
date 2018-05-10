@@ -5,7 +5,7 @@ import { Form, Select, Button, Input } from 'antd'
 const FormItem = Form.Item
 const Option = Select.Option
 
-const TaskForm = ({ onSubmit, tagNames, form }) => {
+const TaskFormAntD = ({ onSubmit, tagNames, form }) => {
   const optionTags = []
   tagNames.forEach(tag => {
     optionTags.push(<Option key={'#' + tag}>#{tag}</Option>)
@@ -67,10 +67,10 @@ const TaskForm = ({ onSubmit, tagNames, form }) => {
   )
 }
 
-TaskForm.propTypes = {
+TaskFormAntD.propTypes = {
   onSubmit: PropTypes.func,
   tagNames: PropTypes.array
 }
 
-const TaskFormD = Form.create()(TaskForm)
-export default TaskFormD
+const TaskForm = Form.create()(TaskFormAntD)
+export default TaskForm

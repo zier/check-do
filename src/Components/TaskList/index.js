@@ -3,7 +3,7 @@ import TaskList from './TaskList'
 
 const mapStateToProps = (state) => {
   return {
-    tasks: state.TaskList.displayItems
+    tasks: state.Task.displayItems
   }
 }
 

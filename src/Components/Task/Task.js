@@ -5,7 +5,7 @@ import { Card, Icon } from 'antd';
 
 import './Task.css'
 
-const Task = ({ title, description, onClickToggleDone, onClickDelete, isDone }) => {
+const Task = ({ id, title, description, onClickToggleDone, onClickDelete, isDone }) => {
   let textLineThrough = {
     textDecoration: 'none',
   }
@@ -14,11 +14,19 @@ const Task = ({ title, description, onClickToggleDone, onClickDelete, isDone }) 
     textLineThrough.textDecoration = 'line-through';
   }
 
+  const onClickToggleTask = () => {
+    onClickToggleDone(id)
+  }
+
+  const onClickDeleteTask = () => {
+    onClickDelete(id)
+  }
+
   return (
     <Card style={{ padding: '0px' }} bordered={true}>
       <div className="control-buttons">
-        <Icon onClick={onClickToggleDone} className="checkButton" type={isDone ? 'check-circle' : 'check-circle-o'} />
-        <Icon onClick={onClickDelete} className="closeButton" type="close" />
+        <Icon onClick={onClickToggleTask} className="checkButton" type={isDone ? 'check-circle' : 'check-circle-o'} />
+        <Icon onClick={onClickDeleteTask} className="closeButton" type="close" />
       </div>
       <h4 style={textLineThrough}>{title}</h4>
       <p style={textLineThrough}>{description}</p>
@@ -27,6 +35,7 @@ const Task = ({ title, description, onClickToggleDone, onClickDelete, isDone }) 
 }
 
 Task.propTypes = {
+  id: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   isDone: PropTypes.bool,
