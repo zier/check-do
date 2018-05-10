@@ -10,25 +10,16 @@ const Task = (state = {}, action) => {
         ]
       }
     case TOGGLE_DONE_TASK:
-      const newDisplayItems = state.displayItems.map(item => {
-        if (item.id === action.taskId) {
-          return {
-            ...item,
-            isDone: !item.isDone,
-          }
-        }
-
-        return item
+      const newDisplayItems = state.displayItems.map((task) => {
+        return (task.id === action.taskId) ? { ...task, isDone: !task.isDone } : task
       })
 
       return {
         displayItems: newDisplayItems
       }
     case REMOVE_TASK:
-      const newList = state.displayItems.filter((task) => task.id !== action.taskId)
-
       return {
-        displayItems: newList
+        displayItems: state.displayItems.filter((task) => task.id !== action.taskId)
       }
     default:
       return state
