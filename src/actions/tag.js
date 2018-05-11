@@ -1,8 +1,5 @@
-export const ADD_TAG = 'ADD_TAG'
+import { createActions } from 'redux-actions';
 
-export const addTag = (tag) => {
-  return {
-    type: ADD_TAG,
-    tag
-  }
-}
+export const { addTag } = createActions({
+  ADD_TAG: (tag) => ({ tag }),
+})

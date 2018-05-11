@@ -1,17 +1,18 @@
-import { ADD_TAG } from '../actions/tag'
+import { handleActions } from 'redux-actions';
+import { addTag } from '../actions/tag'
 
-const Tag = (state = {}, action) => {
-  switch (action.type) {
-    case ADD_TAG:
+const Tag = handleActions(
+  {
+    [addTag]: (state, action) => {
       return {
         items: [
           ...state.items,
           action.tag
         ]
       }
-    default:
-      return state
-  }
-}
+    },
+  },
+  {}
+)
 
 export default Tag
