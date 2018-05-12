@@ -7,11 +7,12 @@ import { action } from '@storybook/addon-actions';
 import { Col, Row } from 'antd';
 
 export const task = {
+  id: "1",
   title: 'Go home',
   description: 'go to home after meeting',
   isDone: false,
+  tags: ['home', 'work', 'test1', 'test2', 'test3', 'test4', 'test5', 'test6'],
 };
-
 
 export const doneTask = {
   ...task,

@@ -1,16 +1,20 @@
 
 import React from 'react';
-import { Layout } from 'antd'
-import SearchForm from '../../Components/SearchForm/SearchForm.js'
+import { Layout, Row, Col } from 'antd'
+import SearchForm from '../../Components/SearchForm'
 
 import './index.css'
 
 const { Header } = Layout
 
-const Head = () => {
+const Head = ({ onClickAddTask }) => {
   return (
     <Header className="headerApp">
-      <SearchForm tagNames={[]}/>
+      <Row>
+        <Col>
+          <SearchForm />
+        </Col>
+      </Row>
     </Header>
   )
 }

@@ -11,7 +11,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (formData) => {
-      dispatch(addTask({ title: formData.title, description: formData.description, tags: formData.tags, isDone: false }))
+      const newTask = {
+        title: formData.title,
+        description: formData.description,
+        isDone: false,
+        tags: formData.tags
+      }
+
+      dispatch(addTask(newTask))
     }
   }
 }

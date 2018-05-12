@@ -1,8 +1,11 @@
 import { handleActions } from 'redux-actions';
 import { addTask, removeTask, toggleDoneTask } from '../actions/task'
 
-const Task = handleActions(
-  {
+const defaultState = {
+  displayItems: []
+}
+
+const Task = handleActions({
     [addTask]: (state, { payload: { task } }) => {
       return {
         displayItems: [
@@ -21,12 +24,10 @@ const Task = handleActions(
         return (task.id === taskId) ? { ...task, isDone: !task.isDone } : task
       })
 
-      return {
-        displayItems: newDisplayItems
-       }
+      return { displayItems: newDisplayItems }
     },
   },
-  {}
+  defaultState
 )
 
 export default Task

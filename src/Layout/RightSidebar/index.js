@@ -9,7 +9,7 @@ const { Sider } = Layout
 
 const RightSiderbar = () => {
   return (
-    <Sider className="rightSidebar" width="350">
+    <Sider className="rightSidebar" width="400">
       <ContainerTaskForm />
     </Sider>
   )

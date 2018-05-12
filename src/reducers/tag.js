@@ -1,18 +1,25 @@
 import { handleActions } from 'redux-actions';
 import { addTag } from '../actions/tag'
 
-const Tag = handleActions(
-  {
-    [addTag]: (state, action) => {
+const defaultState = {
+  items: [
+    'work',
+    'family',
+    'urgent'
+  ]
+}
+
+const Tag = handleActions({
+    [addTag]: (state,  { payload: { tag } }) => {
       return {
         items: [
           ...state.items,
-          action.tag
+          tag
         ]
       }
     },
   },
-  {}
+  defaultState
 )
 
 export default Tag
