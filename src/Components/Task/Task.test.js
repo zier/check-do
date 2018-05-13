@@ -6,9 +6,11 @@ import Task from './Task.js'
 
 describe('Task work correctly', () => {
   const props = {
+    id: "test1",
     title: "title-test",
     description: "description-test",
     isDone: false,
+    tags: ["home"],
   }
 
   const actions = {

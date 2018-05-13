@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Card, Col, Row } from 'antd'
-import Task from '../Task'
+
+import Task from '../Task/Task'
 import './TaskList.css'
 
-const TaskList = ({ tasks, state, onSelectTask }) => {
+const TaskList = ({ tasks, state, onTaskClickToggleDone, onTaskClickDelete }) => {
   if (state === 'LOADING_TASKLIST') {
     return (
       <Row className="taskList" gutter={16}>
@@ -18,7 +19,9 @@ const TaskList = ({ tasks, state, onSelectTask }) => {
     <Row className="taskList" gutter={16}>
       {
         tasks.map((task, index) => {
-          return <Col key={task.id} className="taskListItem" span={8}><Task onClick={onSelectTask} {...task}  key={index}/></Col>
+          return  <Col key={task.id} className="taskListItem" span={8}>
+                    <Task onClickToggleDone={onTaskClickToggleDone} onClickDelete={onTaskClickDelete} {...task}  key={index}/>
+                  </Col>
         })
       }
     </Row>
@@ -28,7 +31,8 @@ const TaskList = ({ tasks, state, onSelectTask }) => {
 TaskList.propTypes = {
   tasks: PropTypes.array,
   state: PropTypes.string,
-  onSelectTask: PropTypes.func
+  onTaskClickToggleDone: PropTypes.func,
+  onTaskClickDelete: PropTypes.func
 }
 
 export default TaskList

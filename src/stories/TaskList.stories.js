@@ -8,22 +8,29 @@ export const emptyTask = []
 
 export const tasks = [
   {
+    id: "1",
     title: 'Go home',
     description: 'go to home after meeting',
+    tags: ["family", "urgent"],
   },
   {
+    id: "2",
     title: 'Buy Eggs',
     description: 'go to supermarket',
+    tags: ["family"],
   },
   {
+    id: "3",
     title: 'Playing Games',
     description: 'when come back home playing games',
     isDone: true,
+    tags: ["work"],
   },
 ];
 
 export const actions = {
-  onSelectTask: action('onSelectTask'),
+  onTaskClickToggleDone: action('onTaskClickToggleDone'),
+  onTaskClickDelete: action('onTaskClickDelete'),
 };
 
 storiesOf('TaskList', module)

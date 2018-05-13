@@ -41,5 +41,13 @@ exports[`Task work correctly renders correctly 1`] = `
   >
     description-test
   </p>
+  <Tag
+    className="taskTag"
+    closable={false}
+    key="home"
+    prefixCls="ant-tag"
+  >
+    home
+  </Tag>
 </Card>
 `;
