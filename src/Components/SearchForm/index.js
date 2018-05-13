@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import SearchForm from './SearchForm'
+import { filterTags } from '../../actions/task'
 
 const mapStateToProps = (state) => {
   return {
@@ -9,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChange: () => {}
+    onChange: (tags) => { dispatch(filterTags(tags)) }
   }
 }
 
