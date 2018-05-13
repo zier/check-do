@@ -9,13 +9,14 @@ const defaultState = {
 
 const _filterDisplayTag = (allTasks, filterTags) => {
   let newDisplayItems = []
-  if (filterTags.length === 0) return newDisplayItems
+  if (filterTags.length === 0) return allTasks
+
   newDisplayItems = allTasks.filter((task) => {
     const stringTags = task.tags.join('#')
 
     let match = false
     filterTags.forEach((tag) => {
-      if (includes(stringTags,tag)) match = true
+      if (includes(stringTags, tag.replace('#',''))) match = true
     })
 
     return match
@@ -27,7 +28,10 @@ const _filterDisplayTag = (allTasks, filterTags) => {
 const Task = handleActions({
     [addTask]: (state, { payload: { task } }) => {
       return {
-        ...state,
+        displayItems: [
+          ...state.displayItems,
+          task
+        ],
         items: [
           ...state.items,
           task
@@ -39,25 +43,29 @@ const Task = handleActions({
       const newDisplayItems = _filterDisplayTag(state.items, tags)
 
       return {
-        ...state.items,
+        ...state,
         displayItems: newDisplayItems,
       }
     },
 
     [removeTask]: (state, { payload: { taskId } }) => {
       return {
-        ...state,
+        displayItems: state.displayItems.filter((task) => task.id !== taskId),
         items: state.items.filter((task) => task.id !== taskId)
       }
     },
 
     [toggleDoneTask]: (state, { payload: { taskId } }) => {
-      const newItems = state.newItems.map((task) => {
+      const newItems = state.items.map((task) => {
+        return (task.id === taskId) ? { ...task, isDone: !task.isDone } : task
+      })
+
+      const newDisplayItems = state.displayItems.map((task) => {
         return (task.id === taskId) ? { ...task, isDone: !task.isDone } : task
       })
 
       return {
-        ...state,
+        displayItems: newDisplayItems,
         items: newItems
       }
     },
