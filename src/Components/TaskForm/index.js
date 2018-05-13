@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import TaskForm from './TaskForm'
 import { addTask } from '../../actions/task'
+import { addTags } from '../../actions/tag'
 
 const mapStateToProps = (state) => {
   return {
@@ -19,6 +20,7 @@ const mapDispatchToProps = (dispatch) => {
       }
 
       dispatch(addTask(newTask))
+      dispatch(addTags(formData.tags))
     }
   }
 }

@@ -1,5 +1,5 @@
 import { createActions } from 'redux-actions';
 
-export const { addTag } = createActions({
-  ADD_TAG: (tag) => ({ tag }),
+export const { addTags } = createActions({
+  ADD_TAGS: (tags) => ({ tags }),
 })

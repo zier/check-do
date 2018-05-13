@@ -1,5 +1,6 @@
-import { handleActions } from 'redux-actions';
-import { addTag } from '../actions/tag'
+import { handleActions } from 'redux-actions'
+import { union } from 'lodash'
+import { addTags } from '../actions/tag'
 
 const defaultState = {
   items: [
@@ -10,12 +11,9 @@ const defaultState = {
 }
 
 const Tag = handleActions({
-    [addTag]: (state,  { payload: { tag } }) => {
+    [addTags]: (state,  { payload: { tags } }) => {
       return {
-        items: [
-          ...state.items,
-          tag
-        ]
+        items: union(tags,state.items)
       }
     },
   },
