@@ -1,8 +1,9 @@
 import { handleActions } from 'redux-actions';
-import { includes } from 'lodash'
+import { includes, size } from 'lodash'
 import { addTask, removeTask, toggleDoneTask, filterTags } from '../actions/task'
 
 const defaultState = {
+  filterTags: [],
   items: [],
   displayItems: []
 }
@@ -27,11 +28,33 @@ const _filterDisplayTag = (allTasks, filterTags) => {
 
 const Task = handleActions({
     [addTask]: (state, { payload: { task } }) => {
-      return {
-        displayItems: [
+      let newDisplayItems = [
+        ...state.displayItems
+      ]
+
+      if (size(state.filterTags) !== 0 && size(task.tags) !== 0) {
+        const stringTags = task.tags.join('#')
+
+        state.filterTags.forEach((tag) => {
+          if (includes(stringTags, tag.replace('#',''))) {
+            newDisplayItems = [
+              ...state.displayItems,
+              task
+            ]
+          }
+        })
+      }
+
+      if (size(state.filterTags) === 0) {
+        newDisplayItems = [
           ...state.displayItems,
           task
-        ],
+        ]
+      }
+
+      return {
+        filterTags: state.filterTags,
+        displayItems: newDisplayItems,
         items: [
           ...state.items,
           task
@@ -44,12 +67,14 @@ const Task = handleActions({
 
       return {
         ...state,
+        filterTags: tags,
         displayItems: newDisplayItems,
       }
     },
 
     [removeTask]: (state, { payload: { taskId } }) => {
       return {
+        ...state,
         displayItems: state.displayItems.filter((task) => task.id !== taskId),
         items: state.items.filter((task) => task.id !== taskId)
       }
@@ -65,6 +90,7 @@ const Task = handleActions({
       })
 
       return {
+        ...state,        
         displayItems: newDisplayItems,
         items: newItems
       }
@@ -72,6 +98,5 @@ const Task = handleActions({
   },
   defaultState
 )
-
 
 export default Task

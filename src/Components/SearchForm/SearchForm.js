@@ -18,6 +18,7 @@ const SearchForm = ({ onChange, tagNames }) => {
       placeholder="input # to mention tag, eg. #work"
       notFoundContent="not found #"
       onChange={onChange}
+      allowClear={true}
     >
       {optionSelect}
     </Select>

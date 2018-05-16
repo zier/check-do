@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Form, Select, Button, Input, Mention } from 'antd'
 
-const { toString } = Mention
+const { toString, toContentState } = Mention
 const FormItem = Form.Item
 const Option = Select.Option
 
@@ -18,6 +18,10 @@ const TaskFormAntD = ({ onSubmit, tagNames, form }) => {
     wrapperCol: { span: 14 },
   }
 
+  const resetForm = () => {
+    form.resetFields()
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     form.validateFieldsAndScroll((err, values) => {
@@ -29,7 +33,7 @@ const TaskFormAntD = ({ onSubmit, tagNames, form }) => {
           values.tags = arrayTags.length > 0 ? arrayTags.slice(1) : []
         }
 
-        onSubmit(values)
+        onSubmit(values, resetForm)
       } else {
         // TODO: implement error validation
       }
@@ -58,7 +62,7 @@ const TaskFormAntD = ({ onSubmit, tagNames, form }) => {
 
       <FormItem {...formItemLayout} label="Tags">
         {
-          getFieldDecorator('tags')(
+          getFieldDecorator('tags', { initialValue: toContentState('') })(
             <Mention
               prefix={['#']}
               suggestions={tagNames}

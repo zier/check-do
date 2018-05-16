@@ -11,16 +11,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSubmit: (formData) => {
+    onSubmit: (formData, resetForm) => {
       const newTask = {
         title: formData.title,
         description: formData.description,
         isDone: false,
         tags: formData.tags
       }
-
+      
       dispatch(addTask(newTask))
       dispatch(addTags(formData.tags))
+
+      resetForm()
     }
   }
 }
