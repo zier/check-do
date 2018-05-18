@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskList work correctly renders correctly 1`] = `
+<Row
+  className="taskList"
+  gutter={16}
+>
+  <Col
+    className="taskListItem"
+    key="1"
+    span={8}
+  >
+    <Task
+      description="go to home after meeting"
+      id="1"
+      key="0"
+      tags={
+        Array [
+          "family",
+          "urgent",
+        ]
+      }
+      title="Go home"
+    />
+  </Col>
+  <Col
+    className="taskListItem"
+    key="2"
+    span={8}
+  >
+    <Task
+      description="go to supermarket"
+      id="2"
+      key="1"
+      tags={
+        Array [
+          "family",
+        ]
+      }
+      title="Buy Eggs"
+    />
+  </Col>
+</Row>
+`;
